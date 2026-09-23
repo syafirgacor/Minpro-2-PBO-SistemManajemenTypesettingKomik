@@ -23,7 +23,6 @@ public class Minpro1PBOSistemManajemenTypesettingKomik {
 
     public static void main(String[] args) {
 
-        // DUMMY DATA AWAL (Menerapkan Inheritance & Subclass)
         Komik komik1 = new Komik("K01", "Solo Leveling", "Action");
         Typesetter ts1 = new TypesetterTetap("TS01", "Ahzami", 3000000); // Menggunakan Subclass
         daftarProyek.add(new ProyekTypeset("PRJ01", komik1, ts1, 100, "Dalam Pengerjaan"));
@@ -76,7 +75,6 @@ public class Minpro1PBOSistemManajemenTypesettingKomik {
         System.out.print("Nama Typesetter: ");
         String namaTs = scanner.nextLine();
         
-        // Pilihan Subclass Typesetter
         System.out.println("Jenis Typesetter:");
         System.out.println("1. Tetap");
         System.out.println("2. Magang");
@@ -130,7 +128,6 @@ public class Minpro1PBOSistemManajemenTypesettingKomik {
 
         for (int i = 0; i < daftarProyek.size(); i++) {
             ProyekTypeset p = daftarProyek.get(i);
-            // Panggilan p.getTypesetter().getPeran() memanfaatkan POLYMORPHISM
             System.out.printf("[%d] ID Proyek: %s | Komik: %s | Ch: %d | Typesetter: %s (%s) | Status: %s\n",
                     (i + 1), p.getIdProyek(), p.getKomik().getJudul(), p.getChapter(),
                     p.getTypesetter().getNama(), p.getTypesetter().getPeran(), p.getStatus());
