@@ -15,7 +15,6 @@ public class ProyekController {
     private ArrayList<ProyekTypeset> daftarProyek = new ArrayList<>();
 
     public ProyekController() {
-        // Dummy Data Awal
         Komik k1 = new Komik("K01", "Solo Leveling", "Action");
         Typesetter t1 = new TypesetterTetap("TS01", "Syafir", 3000000);
         daftarProyek.add(new ProyekTypeset("PRJ01", k1, t1, 100, "Selesai"));
