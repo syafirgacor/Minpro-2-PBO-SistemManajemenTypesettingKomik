@@ -9,17 +9,14 @@ package model;
  * @author user
  */
 public class Typesetter {
-    // Diubah dari private menjadi protected agar subclass bisa mengakses
     protected String idTypesetter;
     protected String nama;
 
-    // Constructor Superclass
     public Typesetter(String idTypesetter, String nama) {
         this.idTypesetter = idTypesetter;
         this.nama = nama;
     }
 
-    // Getter dan Setter
     public String getIdTypesetter() {
         return idTypesetter;
     }
@@ -36,7 +33,6 @@ public class Typesetter {
         this.nama = nama;
     }
 
-    // Method untuk Polymorphism (Overriding)
     public String getPeran() {
         return "Typesetter Umum";
     }
