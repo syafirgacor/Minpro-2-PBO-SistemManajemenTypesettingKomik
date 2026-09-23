@@ -4,9 +4,12 @@ Program Sistem Manajemen Typesetting Komik berbasis CLI (Command Line Interface)
 
 ---
 
-## 🏗️ Struktur Package (Arsitektur MVC)
+## Struktur Package (Arsitektur MVC)
 
-![Screenshot Struktur Package](<img width="800" height="200" alt="image" src="https://github.com/user-attachments/assets/7d775b9a-36e3-46ea-a651-3f8055ae07e7" />)
+[Screenshot Struktur Package] 
+
+<img width="580" height="401" alt="image" src="https://github.com/user-attachments/assets/fe2c36db-4ede-4334-b7d5-6c778dcf2d52" />
+
 
 **Penjelasan:**
 Program ini disusun menggunakan arsitektur **Model-View-Controller (MVC)** untuk memisahkan logika bisnis, struktur data, dan antarmuka pengguna agar kode lebih terstruktur dan mudah dikembangkan:
@@ -16,9 +19,12 @@ Program ini disusun menggunakan arsitektur **Model-View-Controller (MVC)** untuk
 
 ---
 
-## 🔐 1. Access Modifier & Encapsulation
+## 1. Access Modifier & Encapsulation
 
-![Screenshot Access Modifier dan Encapsulation](https://via.placeholder.com/800x300?text=Upload+Screenshot+Kode+Private+Atribut+dan+Getter+Setter+Di+Sini)
+[Screenshot Access Modifier dan Encapsulation]
+
+<img width="1298" height="645" alt="image" src="https://github.com/user-attachments/assets/ce3639db-ac85-4b05-815a-bfa473c0149f" />
+
 
 **Penjelasan:**
 * **Access Modifier**: Seluruh atribut utama pada kelas entitas dibungkus menggunakan modifier `private` (serta `protected` pada superclass) untuk mencegah akses langsung yang tidak terkontrol dari luar kelas.
@@ -26,9 +32,13 @@ Program ini disusun menggunakan arsitektur **Model-View-Controller (MVC)** untuk
 
 ---
 
-## 🧬 2. Inheritance (Superclass & Subclass)
+## 2. Inheritance (Superclass & Subclass)
 
-![Screenshot Kode Inheritance](https://via.placeholder.com/800x300?text=Upload+Screenshot+Kode+Superclass+dan+Extends+Subclass+Di+Sini)
+[Screenshot Kode Inheritance]
+
+<img width="1342" height="910" alt="image" src="https://github.com/user-attachments/assets/105e934c-383b-4771-b865-5abe9a36a688" />
+
+
 
 **Penjelasan:**
 Menerapkan struktur pewarisan (*inheritance*) untuk mengelompokkan karakteristik typesetter:
@@ -38,9 +48,12 @@ Menerapkan struktur pewarisan (*inheritance*) untuk mengelompokkan karakteristik
 
 ---
 
-## 🛡️ 3. Validasi Input
+## 3. Validasi Input
 
-![Screenshot Validasi Input dan Running Test](https://via.placeholder.com/800x300?text=Upload+Screenshot+Validasi+Input+Scanner+dan+Output+Error+Di+Sini)
+[Screenshot Validasi Input dan Running Test]
+
+<img width="1300" height="463" alt="image" src="https://github.com/user-attachments/assets/909b5fb7-ff9f-4ec6-ac3f-ab1709cf40b0" />
+
 
 **Penjelasan:**
 Validasi input diterapkan pada dua tingkatan:
@@ -49,18 +62,24 @@ Validasi input diterapkan pada dua tingkatan:
 
 ---
 
-## 💾 4. Dummy Data Awal & Fitur Read
+## 4. Dummy Data Awal & Fitur Read
 
-![Screenshot Output Read Dummy Data](https://via.placeholder.com/800x300?text=Upload+Screenshot+Menu+2+Read+Data+Langsung+Tampil+Di+Sini)
+[Screenshot Output Read Dummy Data]
+
+<img width="1917" height="540" alt="image" src="https://github.com/user-attachments/assets/b1f1dc5d-4048-4a15-8f7b-f5117552cb9c" />
+
 
 **Penjelasan:**
 Program secara otomatis mengisi *dummy data* awal ke dalam `ArrayList` saat pertama kali dijalankan. Hal ini membuat pengguna dapat langsung menjalankan **Menu 2 (Lihat Data)** dan melihat daftar proyek typesetting yang tersimpan tanpa harus memasukkan data secara manual dari awal.
 
 ---
 
-## 🎭 5. Polymorphism (Method Overriding)
+## 5. Polymorphism (Method Overriding)
 
-![Screenshot Code dan Output Polymorphism](https://via.placeholder.com/800x300?text=Upload+Screenshot+Method+Override+getPeran+dan+Hasil+Output+Di+Sini)
+[Screenshot Code dan Output Polymorphism]
+
+<img width="1917" height="653" alt="image" src="https://github.com/user-attachments/assets/df369f3d-b9ce-4c36-88f7-ce621bd890d1" />
+
 
 **Penjelasan:**
 * **Method Overriding**: Method `getPeran()` pada Superclass `Typesetter` di-*override* oleh Subclass `TypesetterTetap` dan `TypesetterMagang`.
