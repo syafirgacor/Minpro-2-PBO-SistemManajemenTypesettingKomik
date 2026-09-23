@@ -9,15 +9,13 @@ package model;
  * @author user
  */
 public class TypesetterTetap extends Typesetter {
-    private double gajipokok; // Atribut spesifik untuk Typesetter Tetap
+    private double gajipokok;
 
-    // Constructor Subclass
     public TypesetterTetap(String idTypesetter, String nama, double gajipokok) {
         super(idTypesetter, nama);
         this.gajipokok = gajipokok;
     }
 
-    // Getter dan Setter Atribut Khusus
     public double getGajipokok() {
         return gajipokok;
     }
@@ -26,7 +24,6 @@ public class TypesetterTetap extends Typesetter {
         this.gajipokok = gajipokok;
     }
 
-    // Method Overriding (Nilai Tambah Polymorphism)
     @Override
     public String getPeran() {
         return "Typesetter Tetap (Gaji: Rp" + (long)gajipokok + ")";
