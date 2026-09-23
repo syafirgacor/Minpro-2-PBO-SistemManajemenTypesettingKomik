@@ -1,0 +1,34 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package model;
+
+/**
+ *
+ * @author user
+ */
+public class TypesetterTetap extends Typesetter {
+    private double gajipokok; // Atribut spesifik untuk Typesetter Tetap
+
+    // Constructor Subclass
+    public TypesetterTetap(String idTypesetter, String nama, double gajipokok) {
+        super(idTypesetter, nama);
+        this.gajipokok = gajipokok;
+    }
+
+    // Getter dan Setter Atribut Khusus
+    public double getGajipokok() {
+        return gajipokok;
+    }
+
+    public void setGajipokok(double gajipokok) {
+        this.gajipokok = gajipokok;
+    }
+
+    // Method Overriding (Nilai Tambah Polymorphism)
+    @Override
+    public String getPeran() {
+        return "Typesetter Tetap (Gaji: Rp" + (long)gajipokok + ")";
+    }
+}

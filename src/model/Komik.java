@@ -13,20 +13,24 @@ public class Komik {
     private String judul;
     private String genre;
 
-    // Constructor
     public Komik(String idKomik, String judul, String genre) {
         this.idKomik = idKomik;
         this.judul = judul;
         this.genre = genre;
     }
 
-    // Getter dan Setter (Encapsulation & Access Modifier private)
+
     public String getIdKomik() {
         return idKomik;
     }
 
+
     public void setIdKomik(String idKomik) {
-        this.idKomik = idKomik;
+        if (idKomik != null && !idKomik.trim().isEmpty()) {
+            this.idKomik = idKomik;
+        } else {
+            System.out.println("[PERINGATAN] ID Komik tidak boleh kosong!");
+        }
     }
 
     public String getJudul() {
@@ -34,7 +38,11 @@ public class Komik {
     }
 
     public void setJudul(String judul) {
-        this.judul = judul;
+        if (judul != null && !judul.trim().isEmpty()) {
+            this.judul = judul;
+        } else {
+            System.out.println("[PERINGATAN] Judul Komik tidak boleh kosong!");
+        }
     }
 
     public String getGenre() {

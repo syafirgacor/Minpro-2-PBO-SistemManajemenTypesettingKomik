@@ -10,6 +10,8 @@ package main;
  */
 import model.Komik;
 import model.Typesetter;
+import model.TypesetterTetap;
+import model.TypesetterMagang;
 import model.ProyekTypeset;
 
 import java.util.ArrayList;
@@ -20,34 +22,32 @@ public class Minpro1PBOSistemManajemenTypesettingKomik {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        // Data Awal (Dummy Data)
+
+        // DUMMY DATA AWAL (Menerapkan Inheritance & Subclass)
         Komik komik1 = new Komik("K01", "Solo Leveling", "Action");
-        Typesetter ts1 = new Typesetter("TS01", "Ahzami", "Advanced");
+        Typesetter ts1 = new TypesetterTetap("TS01", "Ahzami", 3000000); // Menggunakan Subclass
         daftarProyek.add(new ProyekTypeset("PRJ01", komik1, ts1, 100, "Dalam Pengerjaan"));
 
         int pilihan = 0;
 
-        // Perulangan Menu (Do-While)
         do {
             System.out.println("\n=== SISTEM MANAJEMEN TYPESETTING KOMIK ===");
-            System.out.println("1. Tambah Proyek Typeset (Create)");
-            System.out.println("2. Tampilkan Semua Proyek (Read)");
-            System.out.println("3. Update Status/Chapter Proyek (Update)");
-            System.out.println("4. Hapus Proyek (Delete)");
+            System.out.println("1. Tambah Proyek Typeset");
+            System.out.println("2. Tampilkan Semua Proyek");
+            System.out.println("3. Update Status/Chapter Proyek");
+            System.out.println("4. Hapus Proyek");
             System.out.println("5. Keluar Program");
             System.out.print("Pilih menu (1-5): ");
 
-            // Validasi Input Pilihan Menu
             if (scanner.hasNextInt()) {
                 pilihan = scanner.nextInt();
-                scanner.nextLine(); // consume newline
+                scanner.nextLine(); 
             } else {
                 System.out.println("[ERROR] Input harus berupa angka!");
                 scanner.nextLine();
                 continue;
             }
 
-            // Percabangan Switch-Case
             switch (pilihan) {
                 case 1 -> tambahProyek();
                 case 2 -> tampilkanProyek();
@@ -59,7 +59,6 @@ public class Minpro1PBOSistemManajemenTypesettingKomik {
         } while (pilihan != 5);
     }
 
-    // Create
     private static void tambahProyek() {
         System.out.println("\n--- Tambah Proyek Typeset Baru ---");
         System.out.print("ID Proyek: ");
@@ -76,16 +75,34 @@ public class Minpro1PBOSistemManajemenTypesettingKomik {
         String idTs = scanner.nextLine();
         System.out.print("Nama Typesetter: ");
         String namaTs = scanner.nextLine();
-        System.out.print("Level Pengalaman: ");
-        String expTs = scanner.nextLine();
+        
+        // Pilihan Subclass Typesetter
+        System.out.println("Jenis Typesetter:");
+        System.out.println("1. Tetap");
+        System.out.println("2. Magang");
+        System.out.print("Pilih (1/2): ");
+        int jenis = scanner.nextInt();
+        scanner.nextLine();
+
+        Typesetter ts;
+        if (jenis == 1) {
+            System.out.print("Masukkan Gaji Pokok: ");
+            double gaji = scanner.nextDouble();
+            scanner.nextLine();
+            ts = new TypesetterTetap(idTs, namaTs, gaji);
+        } else {
+            System.out.print("Masukkan Durasi Magang (Bulan): ");
+            int durasi = scanner.nextInt();
+            scanner.nextLine();
+            ts = new TypesetterMagang(idTs, namaTs, durasi);
+        }
 
         int chapter = 0;
-        // Validasi Input Angka
         while (true) {
             System.out.print("Nomor Chapter: ");
             if (scanner.hasNextInt()) {
                 chapter = scanner.nextInt();
-                scanner.nextLine(); // consume newline
+                scanner.nextLine();
                 if (chapter > 0) break;
                 System.out.println("[ERROR] Chapter harus berupa angka positif!");
             } else {
@@ -98,14 +115,12 @@ public class Minpro1PBOSistemManajemenTypesettingKomik {
         String status = scanner.nextLine();
 
         Komik komik = new Komik(idKomik, judulKomik, genreKomik);
-        Typesetter ts = new Typesetter(idTs, namaTs, expTs);
         ProyekTypeset proyekBaru = new ProyekTypeset(idProyek, komik, ts, chapter, status);
 
         daftarProyek.add(proyekBaru);
         System.out.println("[BERHASIL] Proyek typeset berhasil ditambahkan!");
     }
 
-    // Read
     private static void tampilkanProyek() {
         System.out.println("\n--- DAFTAR PROYEK TYPESETTING ---");
         if (daftarProyek.isEmpty()) {
@@ -113,16 +128,15 @@ public class Minpro1PBOSistemManajemenTypesettingKomik {
             return;
         }
 
-        // Perulangan untuk menampilkan data (For Loop)
         for (int i = 0; i < daftarProyek.size(); i++) {
             ProyekTypeset p = daftarProyek.get(i);
-            System.out.printf("[%d] ID Proyek: %s | Komik: %s | Ch: %d | Typesetter: %s | Status: %s\n",
+            // Panggilan p.getTypesetter().getPeran() memanfaatkan POLYMORPHISM
+            System.out.printf("[%d] ID Proyek: %s | Komik: %s | Ch: %d | Typesetter: %s (%s) | Status: %s\n",
                     (i + 1), p.getIdProyek(), p.getKomik().getJudul(), p.getChapter(),
-                    p.getTypesetter().getNama(), p.getStatus());
+                    p.getTypesetter().getNama(), p.getTypesetter().getPeran(), p.getStatus());
         }
     }
 
-    // Update
     private static void updateProyek() {
         tampilkanProyek();
         if (daftarProyek.isEmpty()) return;
@@ -136,7 +150,6 @@ public class Minpro1PBOSistemManajemenTypesettingKomik {
         int index = scanner.nextInt() - 1;
         scanner.nextLine();
 
-        // Validasi Index
         if (index >= 0 && index < daftarProyek.size()) {
             ProyekTypeset p = daftarProyek.get(index);
 
@@ -160,7 +173,6 @@ public class Minpro1PBOSistemManajemenTypesettingKomik {
         }
     }
 
-    // Delete
     private static void hapusProyek() {
         tampilkanProyek();
         if (daftarProyek.isEmpty()) return;

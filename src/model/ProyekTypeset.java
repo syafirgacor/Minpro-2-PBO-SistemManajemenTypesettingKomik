@@ -13,9 +13,8 @@ public class ProyekTypeset {
     private Komik komik;
     private Typesetter typesetter;
     private int chapter;
-    private String status; // "Dalam Pengerjaan", "Revisi", "Selesai"
+    private String status;
 
-    // Constructor
     public ProyekTypeset(String idProyek, Komik komik, Typesetter typesetter, int chapter, String status) {
         this.idProyek = idProyek;
         this.komik = komik;
@@ -24,7 +23,7 @@ public class ProyekTypeset {
         this.status = status;
     }
 
-    // Getter dan Setter
+    
     public String getIdProyek() {
         return idProyek;
     }
@@ -53,7 +52,7 @@ public class ProyekTypeset {
         return chapter;
     }
 
-    // Setter dengan Nilai Tambah: Validasi Input
+    
     public void setChapter(int chapter) {
         if (chapter > 0) {
             this.chapter = chapter;
@@ -66,7 +65,12 @@ public class ProyekTypeset {
         return status;
     }
 
+
     public void setStatus(String status) {
-        this.status = status;
+        if (status != null && !status.trim().isEmpty()) {
+            this.status = status;
+        } else {
+            System.out.println("[PERINGATAN] Status pengerjaan tidak boleh kosong!");
+        }
     }
 }
