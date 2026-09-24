@@ -15,7 +15,7 @@ Program Sistem Manajemen Typesetting Komik berbasis CLI (Command Line Interface)
 Program ini disusun menggunakan arsitektur **Model-View-Controller (MVC)** untuk memisahkan logika bisnis, struktur data, dan antarmuka pengguna agar kode lebih terstruktur dan mudah dikembangkan:
 * **`model`**: Berisi kelas-kelas entitas data (`Komik`, `Typesetter`, `TypesetterTetap`, `TypesetterMagang`, `ProyekTypeset`) yang mengelola enkapsulasi dan aturan data.
 * **`controllers`**: Berisi kelas `ProyekController` yang bertanggung jawab mengelola logika bisnis dan manipulasi data pada `ArrayList` (CRUD).
-* **`views` / `main`**: Berisi kelas utama (`MainApp` / `Minpro1PBOSistemManajemenTypesettingKomik`) yang menangani alur antarmuka CLI, pilihan menu, dan pembacaan input pengguna.
+* **`main`**: Berisi kelas utama (`MainApp` / `Minpro1PBOSistemManajemenTypesettingKomik`) yang menangani alur antarmuka CLI, pilihan menu, dan pembacaan input pengguna.
 
 ---
 
